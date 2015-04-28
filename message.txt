@@ -1,0 +1,7 @@
+You are getting this email because the URL
+
+http://cdn-api.ooyala.com/v2/syndications/b83ebd1217214b0883639fbc21f66cbf/feed?pcode=V5dzkxOmUFf0dFju2v9bPHqRdgjC
+
+returned "Internal Service Error" just now.
+
+Please open a ticket with ooyala, https://ooyalacommunity.force.com/Home , and let them know.
