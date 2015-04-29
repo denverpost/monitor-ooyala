@@ -1,8 +1,10 @@
 #!/bin/bash
-# Keep tabs on Ooyala feed. Could work for any feed, really.
+# Keep tabs on an Ooyala feed URL. Could work for any URL.
 # Sends an email if the length of the content is something that couldn't be correct.
 # Example:
 # $ ./monitor.bash
+# Monitor a non-Ooyala url:
+# $ ./monitor.bash --url http://www.denverpost.com/
 
 # Environment variables are stored in project root.
 # Currently two variables are set in it:
