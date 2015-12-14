@@ -42,7 +42,6 @@ if [ $FILESIZE -lt 1000 ]; then
     echo "Filesize: $FILESIZE"
     # The $SENDER and $RECIPIENTS are set via environment variables.
     python mailer.py --state --sender $SENDER $RECIPIENTS
-    #rm "$SLUG.new"
     exit 2
 fi
 
