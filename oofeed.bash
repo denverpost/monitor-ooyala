@@ -10,6 +10,7 @@ TEST=0
 SLUG='ooyala_feed'
 FILESIZE=0
 ITEMS_ADD=1
+COUNT=0
 
 # What arguments do we pass?
 while [ "$1" != "" ]; do
@@ -25,16 +26,26 @@ while [ "$1" != "" ]; do
 done
 
 # DOWNLOAD!
-# If we're not testing, we download the file
+# If we're not testing, we download the file.
 if [ "$TEST" -eq 0 ]; then
     while [ $ITEMS_ADD -gt 0 ]
     do 
-        wget -q -O "$SLUG.new" $URL
-        ITEMS_ADD=`grep "<item" ooyala_feed.new | wc -l`
+        wget -q -O "$SLUG.$COUNT.xml" $URL
+        ITEMS_ADD=`grep "<item" ooyala_feed.$COUNT.xml | wc -l`
+        # ITEMS_ADD is the number of new items in the current feed
         echo $ITEMS_ADD
+
+        # Keep track of how many total items we've ingested
         ITEMS=$((ITEMS+$ITEMS_ADD))
         echo $ITEMS
-        URL=`grep '<link rel="next">' ooyala_feed.new | grep -Eo '(http[^<]*)'`
+
+        # *** If you want to run any scripts on the current page of the feed, run it here.
+        # Example: python get_items.py $SLUG.$COUNT.xml, where get_items.py looks at the xml
+        # and downloads each item in the feed.
+
+        # Figure out what the URL for the next page of the feed is
+        URL=`grep '<link rel="next">' ooyala_feed.$COUNT.xml | grep -Eo '(http[^<]*)'`
+        COUNT=$((COUNT+1))
         echo $URL
     done
 fi
