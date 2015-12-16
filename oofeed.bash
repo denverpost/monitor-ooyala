@@ -1,7 +1,7 @@
 #!/bin/bash
-# Count the # of items in an Ooyala feed.
+# Ooyala feed manipulation and download.
 # Example:
-# $ ./
+# $ ./oofeed.bash
 
 # Default arguments
 URL="http://api.ooyala.com/v2/syndications/cfe3da1f42b64b0ea83fbe5f5565c804/feed?pcode=V5dzkxOmUFf0dFju2v9bPHqRdgjC"
