@@ -13,8 +13,7 @@ function count_xmls() {
 
 $i=0;
 
-/*while ($i<=(count_xmls()-1)) { */
-while ($i<=4) {
+while ($i<=(count_xmls()-1)) {
 	$xmlfile = simplexml_load_file('ooyala_feed.'.$i.'.xml');
 	$namespaces = $xmlfile->getNamespaces(true);
 	foreach ($xmlfile->channel->item as $item) {
